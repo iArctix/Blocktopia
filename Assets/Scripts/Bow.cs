@@ -39,7 +39,10 @@ public class Bow : MonoBehaviour
         float speedRatio = chargeTime / chargeTimeToMaxSpeed;
         float arrowSpeed = Mathf.Lerp(minArrowSpeed, maxArrowSpeed, speedRatio);
 
-        GameObject arrowObject = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
+        // Set arrow spawn position to the player's position
+        Vector3 spawnPosition = transform.position; // Assuming the bow is parented to the player
+
+        GameObject arrowObject = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity);
         Rigidbody arrowRigidbody = arrowObject.GetComponent<Rigidbody>();
 
         // Fire the arrow in the direction the player is looking
