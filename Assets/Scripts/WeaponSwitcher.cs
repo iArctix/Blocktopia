@@ -1,14 +1,36 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSwitcher : MonoBehaviour
 {
     public GameObject[] weapons; // Array of weapon game objects
     private int currentWeaponIndex = 0; // Index of the currently active weapon
 
+    //used for icons and crosshairs etc
+    public GameObject swordicon;
+    public GameObject bowicon;
+    public GameObject pickicon;
+    public GameObject axeicon;
+    public GameObject sword;
+    public GameObject bow;
+    public GameObject pick;
+    public GameObject axe;
+    public Image crosshair;
+    public Sprite bowpic;
+    public Sprite swordpic;
+    public Sprite toolpic;
+
+
     void Start()
     {
-        // Ensure only the first weapon is initially active
+        
         SetActiveWeapon(currentWeaponIndex);
+
+        swordicon.SetActive(true);
+        bowicon.SetActive(false);
+        axeicon.SetActive(false);
+        pickicon.SetActive(false);
+        crosshair.sprite = swordpic;
     }
 
     void Update()
@@ -43,6 +65,40 @@ public class WeaponSwitcher : MonoBehaviour
 
             // Switch to the new weapon
             SwitchWeapon(newIndex);
+        }
+
+
+    if(sword.activeSelf)
+        {
+            swordicon.SetActive(true);
+            bowicon.SetActive(false);
+            axeicon.SetActive(false);
+            pickicon.SetActive(false);
+            crosshair.sprite = swordpic;
+        }
+    else if(bow.activeSelf)
+        {
+            swordicon.SetActive(false);
+            bowicon.SetActive(true);
+            axeicon.SetActive(false);
+            pickicon.SetActive(false);
+            crosshair.sprite = bowpic;
+        }
+    else if(axe.activeSelf)
+        {
+            swordicon.SetActive(false);
+            bowicon.SetActive(false);
+            axeicon.SetActive(true);
+            pickicon.SetActive(false);
+            crosshair.sprite = toolpic;
+        }
+    else if(pick.activeSelf)
+        {
+            swordicon.SetActive(false);
+            bowicon.SetActive(false);
+            axeicon.SetActive(false);
+            pickicon.SetActive(true);
+            crosshair.sprite = toolpic;
         }
     }
 
