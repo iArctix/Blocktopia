@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour
         // Jumping
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jump button pressed");
-            Debug.Log("Is grounded: " + isGrounded);
             if (isGrounded)
             {
                 Debug.Log("Jumping...");
@@ -55,7 +53,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, 2f, groundMask);
         if (isGrounded)
         {
-            Debug.Log("Distance to ground: " + hit.distance);
+            //Debug.Log("Distance to ground: " + hit.distance);
         }
     }
 }

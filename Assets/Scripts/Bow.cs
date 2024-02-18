@@ -4,8 +4,8 @@ public class Bow : MonoBehaviour
 {
     public GameObject arrowPrefab;
     public Transform arrowSpawnPoint;
-    public float minArrowSpeed = 5f;
-    public float maxArrowSpeed = 20f;
+    public float minArrowSpeed = 2f;
+    public float maxArrowSpeed = 30f;
     public float chargeTimeToMaxSpeed = 2f;
     public float arrowGravity = 9.81f; // Acceleration due to gravity
 
