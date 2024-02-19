@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponSwitcher : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class WeaponSwitcher : MonoBehaviour
     public Sprite bowpic;
     public Sprite swordpic;
     public Sprite toolpic;
+    public TextMeshProUGUI Swordtext;
+    public TextMeshProUGUI Bowtext;
+    public TextMeshProUGUI Picktext;
+    public TextMeshProUGUI Axetext;
 
 
     void Start()
@@ -31,6 +36,10 @@ public class WeaponSwitcher : MonoBehaviour
         axeicon.SetActive(false);
         pickicon.SetActive(false);
         crosshair.sprite = swordpic;
+        Swordtext.color = Color.green;
+        Bowtext.color = Color.white;
+        Picktext.color = Color.white;
+        Axetext.color = Color.white;
     }
 
     void Update()
@@ -75,6 +84,11 @@ public class WeaponSwitcher : MonoBehaviour
             axeicon.SetActive(false);
             pickicon.SetActive(false);
             crosshair.sprite = swordpic;
+
+            Swordtext.color = Color.green;
+            Bowtext.color = Color.white;
+            Picktext.color = Color.white;
+            Axetext.color = Color.white;
         }
     else if(bow.activeSelf)
         {
@@ -83,6 +97,11 @@ public class WeaponSwitcher : MonoBehaviour
             axeicon.SetActive(false);
             pickicon.SetActive(false);
             crosshair.sprite = bowpic;
+
+            Swordtext.color = Color.white;
+            Bowtext.color = Color.green;
+            Picktext.color = Color.white;
+            Axetext.color = Color.white;
         }
     else if(axe.activeSelf)
         {
@@ -91,6 +110,11 @@ public class WeaponSwitcher : MonoBehaviour
             axeicon.SetActive(true);
             pickicon.SetActive(false);
             crosshair.sprite = toolpic;
+
+            Swordtext.color = Color.white;
+            Bowtext.color = Color.white;
+            Picktext.color = Color.white;
+            Axetext.color = Color.green;
         }
     else if(pick.activeSelf)
         {
@@ -99,6 +123,11 @@ public class WeaponSwitcher : MonoBehaviour
             axeicon.SetActive(false);
             pickicon.SetActive(true);
             crosshair.sprite = toolpic;
+
+            Swordtext.color = Color.white;
+            Bowtext.color = Color.white;
+            Picktext.color = Color.green;
+            Axetext.color = Color.white;
         }
     }
 

@@ -3108,6 +3108,10 @@ MonoBehaviour:
   bowpic: {fileID: 21300000, guid: 158805d3268baf048a9230f0210158b3, type: 3}
   swordpic: {fileID: 21300000, guid: 8d50da670c8ddf6478f41cf8f057c838, type: 3}
   toolpic: {fileID: 21300000, guid: f53c8b4ed85a1cb498ee4bc44d615c43, type: 3}
+  Swordtext: {fileID: 341346100}
+  Bowtext: {fileID: 909485425}
+  Picktext: {fileID: 1183573098}
+  Axetext: {fileID: 1660554060}
 --- !u!1 &1966423971
 GameObject:
   m_ObjectHideFlags: 0
