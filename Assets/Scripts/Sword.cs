@@ -2,27 +2,39 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public float damage = 20f; // Amount of damage the sword deals
     public Animator animator; // Reference to the Animator component
+    public float damage = 20f;
 
     void Update()
     {
-        // Check for mouse click to swing the sword
-        if (Input.GetMouseButtonDown(0))
+        // Check if the mouse button is being held down
+        if (Input.GetMouseButton(0))
         {
-            SwingSword();
+            ActivateSword();
+        }
+        else
+        {
+            DeactivateSword();
         }
     }
 
-    void SwingSword()
+    void ActivateSword()
     {
-        // Trigger the "Active" parameter to transition to the "SwordAnim" state
+        // Trigger the animation
         if (animator != null)
         {
-            animator.SetTrigger("Active");
+            animator.SetBool("IsActive", true);
         }
     }
 
+    void DeactivateSword()
+    {
+        // Stop the animation
+        if (animator != null)
+        {
+            animator.SetBool("IsActive", false);
+        }
+    }
     void OnCollisionEnter(Collision collision)
     {
         // Check if the sword collides with an enemy
