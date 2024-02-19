@@ -40,7 +40,7 @@ public class Bow : MonoBehaviour
         float arrowSpeed = Mathf.Lerp(minArrowSpeed, maxArrowSpeed, speedRatio);
 
         // Set arrow spawn position to the player's position
-        Vector3 spawnPosition = transform.position; // Assuming the bow is parented to the player
+        Vector3 spawnPosition = Camera.main.transform.position;
 
         GameObject arrowObject = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity);
         Rigidbody arrowRigidbody = arrowObject.GetComponent<Rigidbody>();
