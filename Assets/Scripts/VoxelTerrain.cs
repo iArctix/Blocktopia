@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class VoxelTerrain : MonoBehaviour
+public class VoxelTerrainGenerator : MonoBehaviour
 {
-    public int width = 10;          // Number of cubes along the X-axis
-    public int length = 10;         // Number of cubes along the Z-axis
-    public int height = 5;          // Number of cubes along the Y-axis
+    public int width = 50;                  // Number of cubes along the X-axis
+    public int length = 50;                 // Number of cubes along the Z-axis
+    public float scale = 10f;               // Scale of the Perlin noise
+    public float heightMultiplier = 10f;    // Multiplier for the height of the terrain
+    public float yOffset = 0f;              // Offset to adjust the terrain vertically
 
-    public GameObject cubePrefab;   // Reference to the cube prefab (grass, sand, etc.)
+    public GameObject cubePrefab;           // Reference to the cube prefab (grass, sand, etc.)
 
     void Start()
     {
@@ -18,15 +20,18 @@ public class VoxelTerrain : MonoBehaviour
         // Loop through each coordinate in the grid
         for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < height; y++)
+            for (int z = 0; z < length; z++)
             {
-                for (int z = 0; z < length; z++)
-                {
-                    // Instantiate a cube at the current position
-                    Vector3 spawnPosition = new Vector3(x, y, z);
-                    GameObject cube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
-                    cube.transform.SetParent(transform); // Set the parent to this GameObject
-                }
+                // Calculate the height using Perlin noise
+                float y = Mathf.PerlinNoise((float)x / scale, (float)z / scale) * heightMultiplier + yOffset;
+
+                // Round y to the nearest integer
+                int roundedY = Mathf.RoundToInt(y);
+
+                // Instantiate a cube at the current position
+                Vector3 spawnPosition = new Vector3(x, roundedY, z);
+                GameObject cube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+                cube.transform.SetParent(transform); // Set the parent to this GameObject
             }
         }
     }
