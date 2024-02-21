@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodData : MonoBehaviour
+[CreateAssetMenu(fileName = "New Wood", menuName = "Wood")]
+public class WoodData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string woodName;
+    public GameObject woodModel;
+    public int toollevelrequirement;
 }

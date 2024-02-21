@@ -4,6 +4,5 @@ using UnityEngine;
 public class OreData : ScriptableObject
 {
     public string oreName;
-    public GameObject oreModel;
     public int toollevelrequirement;
 }
