@@ -19,6 +19,10 @@ public class Pickaxe : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetMouseButtonUp(0))
+        {
+            levelRequirementUI.SetActive(false);
+        }
         // Check if the mouse button is being held down
         if (Input.GetMouseButton(0))
         {
