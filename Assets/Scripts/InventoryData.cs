@@ -16,9 +16,9 @@ public class InventoryData : ScriptableObject
 
     //Ores
     public int Copper;
-    public int Iron;
-    public int silver;
-    public int palladium;
+    public int gold;
+    public int titanium;
+    public int tungsten;
 
 
 

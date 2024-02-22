@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4086aaf606e38954da97812b26e44e16, type: 3}
   m_Name: Titanium
   m_EditorClassIdentifier: 
-  oreName: Titanium
-  toollevelrequirement: 3
+  oreName: 
+  toollevelrequirement: 0

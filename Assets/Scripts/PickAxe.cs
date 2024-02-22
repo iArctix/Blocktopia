@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pickaxe : MonoBehaviour
@@ -12,6 +13,7 @@ public class Pickaxe : MonoBehaviour
     OreShake currentShakingOre; // Reference to the OreShake script of the currently mined ore
 
     public Playerstats playerstats;
+ 
 
     void Start()
     {
@@ -21,6 +23,8 @@ public class Pickaxe : MonoBehaviour
 
     void Update()
     {
+      
+
         if (Input.GetMouseButtonUp(0))
         {
             levelRequirementUI.SetActive(false);
@@ -123,6 +127,13 @@ public class Pickaxe : MonoBehaviour
                     int oreLevelRequirement = oreInstance.oreData.toollevelrequirement;
                     if (CanMine(oreLevelRequirement))
                     {
+                        //Add item to inventory
+                        
+                      
+
+                   
+
+
                         // Destroy the ore GameObject
                         Destroy(hit.collider.gameObject);
                     }
@@ -155,4 +166,11 @@ public class Pickaxe : MonoBehaviour
         // Compare player's pickaxe level with ore's level requirement
         return playerPickaxeLevel >= oreLevelRequirement;
     }
+
+   
+
+
+     
+
+
 }
