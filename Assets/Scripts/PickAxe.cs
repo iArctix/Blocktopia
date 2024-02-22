@@ -9,6 +9,8 @@ public class Pickaxe : MonoBehaviour
 
     bool isMining = false; // Flag to track if the player is currently mining
     float miningTimer = 0f; // Timer for mining duration
+    OreShake currentShakingOre; // Reference to the OreShake script of the currently mined ore
+
     public Playerstats playerstats;
 
     void Start()
@@ -19,7 +21,7 @@ public class Pickaxe : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             levelRequirementUI.SetActive(false);
         }
@@ -70,6 +72,13 @@ public class Pickaxe : MonoBehaviour
                     if (CanMine(oreLevelRequirement))
                     {
                         isMining = true;
+
+                        // Start shaking the ore
+                        currentShakingOre = hit.collider.GetComponent<OreShake>();
+                        if (currentShakingOre != null)
+                        {
+                            currentShakingOre.StartShaking(50f, 0.05f); // Adjust speed and amount as needed
+                        }
                     }
                     else
                     {
@@ -88,6 +97,13 @@ public class Pickaxe : MonoBehaviour
 
         isMining = false;
         miningTimer = 0f;
+
+        // Stop shaking the ore
+        if (currentShakingOre != null)
+        {
+            currentShakingOre.StopShaking();
+            currentShakingOre = null;
+        }
     }
 
     void CompleteMining()
@@ -122,6 +138,13 @@ public class Pickaxe : MonoBehaviour
         // Reset mining variables
         isMining = false;
         miningTimer = 0f;
+
+        // Stop shaking the ore
+        if (currentShakingOre != null)
+        {
+            currentShakingOre.StopShaking();
+            currentShakingOre = null;
+        }
     }
 
     bool CanMine(int oreLevelRequirement)
