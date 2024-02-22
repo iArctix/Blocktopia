@@ -1242,6 +1242,7 @@ MonoBehaviour:
   reachDistance: 3
   choppingTime: 3
   playerstats: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75, type: 2}
+  inventoryData: {fileID: 11400000, guid: 33aa295d421128141b923a77a235eac5, type: 2}
 --- !u!1 &858931027
 GameObject:
   m_ObjectHideFlags: 0
