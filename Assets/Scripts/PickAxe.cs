@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class Pickaxe : MonoBehaviour
     OreShake currentShakingOre; // Reference to the OreShake script of the currently mined ore
 
     public Playerstats playerstats;
+    public InventoryData InventoryData;
  
 
     void Start()
@@ -125,10 +127,28 @@ public class Pickaxe : MonoBehaviour
                 if (oreInstance != null)
                 {
                     int oreLevelRequirement = oreInstance.oreData.toollevelrequirement;
+                    
+
+                    
                     if (CanMine(oreLevelRequirement))
                     {
                         //Add item to inventory
-                        
+                        if(oreInstance.oreData.Resourcename == "Copper")
+                        {
+                            InventoryData.Copper += 1;
+                        }
+                        else if (oreInstance.oreData.Resourcename == "Gold")
+                        {
+                            InventoryData.gold += 1;
+                        }
+                        else if(oreInstance.oreData.Resourcename == "Titanium")
+                        {
+                            InventoryData.titanium += 1;
+                        }
+                        else
+                        {
+                            Debug.Log("SomethingBroke");
+                        }
                       
 
                    

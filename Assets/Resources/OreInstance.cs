@@ -4,10 +4,11 @@ using UnityEngine;
 public class OreInstance : MonoBehaviour
 {
     public OreData oreData;
+   
     
 
     void Update()
     {
-       
+      
     }
 }

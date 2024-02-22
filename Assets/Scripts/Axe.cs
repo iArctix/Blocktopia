@@ -12,6 +12,7 @@ public class Axe : MonoBehaviour
     OreShake currentShakingWood; // Reference to the WoodShake script of the currently chopped wood
 
     public Playerstats playerstats;
+    public InventoryData inventoryData;
 
     void Start()
     {
@@ -123,6 +124,24 @@ public class Axe : MonoBehaviour
                     int woodLevelRequirement = woodInstance.woodData.toollevelrequirement;
                     if (CanChop(woodLevelRequirement))
                     {
+                        if(woodInstance.woodData.woodName == "Oak")
+                        {
+                            inventoryData.Oak += 1;
+
+                        }
+                        else if(woodInstance.woodData.woodName == "Birch")
+                        {
+                            inventoryData.Birch += 1;
+                        }
+                        else if(woodInstance.woodData.woodName == "Ash")
+                        {
+                            inventoryData.Ash += 1;
+                        }
+                        else
+                        {
+                            Debug.Log("Somethingbroke");
+                        }
+
                         // Destroy the wood GameObject
                         Destroy(hit.collider.gameObject);
                     }

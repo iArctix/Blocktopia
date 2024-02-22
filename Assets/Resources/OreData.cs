@@ -4,14 +4,7 @@ using UnityEngine;
 public class OreData : ScriptableObject
 {
     public int toollevelrequirement;
-    public Resourcename Resource = Resourcename.Copper;
-
-    public enum Resourcename
-    {
-        Copper,
-        Gold,
-        Titanium,
-        Tungsten
-    }
+    public string Resourcename;
+    
 
 }
