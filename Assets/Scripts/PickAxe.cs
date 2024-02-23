@@ -7,7 +7,7 @@ public class Pickaxe : MonoBehaviour
     public Animator animator; // Reference to the Animator component
     public GameObject levelRequirementUI; // Reference to the UI GameObject for displaying level requirement message
     public float reachDistance = 3f; // Adjust this value to change how far the player can interact with objects
-    public float miningTime = 3f; // Time it takes to mine the ore
+    public float miningTime = 0.5f; // Time it takes to mine the ore
 
     bool isMining = false; // Flag to track if the player is currently mining
     float miningTimer = 0f; // Timer for mining duration
@@ -15,16 +15,20 @@ public class Pickaxe : MonoBehaviour
 
     public Playerstats playerstats;
     public InventoryData InventoryData;
- 
+    public PickupUI pickupUI;
+
 
     void Start()
     {
         // Ensure the level requirement UI is turned off initially
         levelRequirementUI.SetActive(false);
+        
+
     }
 
     void Update()
     {
+       
       
 
         if (Input.GetMouseButtonUp(0))
@@ -136,14 +140,17 @@ public class Pickaxe : MonoBehaviour
                         if(oreInstance.oreData.Resourcename == "Copper")
                         {
                             InventoryData.Copper += 1;
+                            pickupUI.DisplayPickup("Copper", 1);
                         }
                         else if (oreInstance.oreData.Resourcename == "Gold")
                         {
                             InventoryData.gold += 1;
+                            pickupUI.DisplayPickup("Gold", 1);
                         }
                         else if(oreInstance.oreData.Resourcename == "Titanium")
                         {
                             InventoryData.titanium += 1;
+                            pickupUI.DisplayPickup("Titanium", 1);
                         }
                         else
                         {

@@ -1243,6 +1243,54 @@ MonoBehaviour:
   choppingTime: 3
   playerstats: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75, type: 2}
   inventoryData: {fileID: 11400000, guid: 33aa295d421128141b923a77a235eac5, type: 2}
+--- !u!1 &822424997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822424999}
+  - component: {fileID: 822424998}
+  m_Layer: 0
+  m_Name: PickupUi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &822424998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822424997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da00a2190b7cc74fbc21ba348b47956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupTextPrefab: {fileID: 5320386290046555049, guid: 483dfc0b6bdf53441aae7b147bdbc359,
+    type: 3}
+  canvasTransform: {fileID: 1053136262}
+  displayDuration: 2
+--- !u!4 &822424999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822424997}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1544.9683, y: 311.30035, z: -201.73492}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858931027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,6 +3881,7 @@ MonoBehaviour:
   miningTime: 3
   playerstats: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75, type: 2}
   InventoryData: {fileID: 11400000, guid: 33aa295d421128141b923a77a235eac5, type: 2}
+  pickupUI: {fileID: 822424998}
 --- !u!1 &1995105728
 GameObject:
   m_ObjectHideFlags: 0
@@ -4333,3 +4382,4 @@ SceneRoots:
   - {fileID: 714935953}
   - {fileID: 78114970}
   - {fileID: 661550456}
+  - {fileID: 822424999}
