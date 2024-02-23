@@ -13,6 +13,7 @@ public class Axe : MonoBehaviour
 
     public Playerstats playerstats;
     public InventoryData inventoryData;
+    public PickupUI pickupUI;
 
     void Start()
     {
@@ -127,15 +128,18 @@ public class Axe : MonoBehaviour
                         if(woodInstance.woodData.woodName == "Oak")
                         {
                             inventoryData.Oak += 1;
+                            pickupUI.DisplayPickup("Oak", 1);
 
                         }
                         else if(woodInstance.woodData.woodName == "Birch")
                         {
                             inventoryData.Birch += 1;
+                            pickupUI.DisplayPickup("Birch", 1);
                         }
                         else if(woodInstance.woodData.woodName == "Ash")
                         {
                             inventoryData.Ash += 1;
+                            pickupUI.DisplayPickup("Ash", 1);
                         }
                         else
                         {
