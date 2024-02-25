@@ -1,59 +1,45 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float turnSpeed = 180f;
-    public float jumpForce = 8f;
-    public LayerMask groundMask;
-
+    public float speed = 500f;
+    public float sensitivity = 2f;
+    public float jumpForce = 12f;
     private Rigidbody rb;
-    private bool isGrounded;
-    private float verticalRotation = 0f;
+    private float rotationX = 0f;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor at the start
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    private void Update()
     {
-        // Movement
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical) * moveSpeed * Time.deltaTime;
-        rb.MovePosition(transform.position + transform.TransformDirection(movement));
+        // Player movement
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movement = (transform.right * horizontalInput + transform.forward * verticalInput) * speed * Time.deltaTime;
+        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
 
-        // Turning (horizontal rotation)
-        float turn = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up, turn);
+        // Player rotation with mouse
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+        rotationX -= mouseY;
+        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(rotationX, transform.localEulerAngles.y + mouseX, 0f);
 
-        // Looking around (vertical rotation)
-        float lookVertical = -Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime;
-        verticalRotation += lookVertical;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f); // Limit vertical rotation to prevent flipping
-        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-
-        // Jumping
-        if (Input.GetButtonDown("Jump"))
+        // Player jump
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            if (isGrounded)
-            {
-                Debug.Log("Jumping...");
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            }
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
-    void FixedUpdate()
+    private bool IsGrounded()
     {
-        // Check if the player is grounded
         RaycastHit hit;
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, 2f, groundMask);
-        if (isGrounded)
-        {
-            //Debug.Log("Distance to ground: " + hit.distance);
-        }
+        float distance = GetComponent<Collider>().bounds.extents.y + 0.1f;
+        return Physics.Raycast(transform.position, Vector3.down, out hit, distance);
     }
 }
