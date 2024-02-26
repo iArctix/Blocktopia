@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class BlacksmithMenu : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     public GameObject gameplayui;
-    public GameObject blacksmithui;
+    public GameObject otherui;
 
     private bool isPlayerInside = false;
 
@@ -11,7 +11,7 @@ public class BlacksmithMenu : MonoBehaviour
     {
         if (isPlayerInside && Input.GetKeyDown(KeyCode.E))
         {
-            if (blacksmithui.activeSelf)
+            if (otherui.activeSelf)
             {
                 closemenu();
             }
@@ -44,14 +44,14 @@ public class BlacksmithMenu : MonoBehaviour
     void closemenu()
     {
         gameplayui.SetActive(true);
-        blacksmithui.SetActive(false);
+        otherui.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
 
     }
     void openmenu()
     {
         gameplayui.SetActive(false);
-        blacksmithui.SetActive(true);
+        otherui.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
     }
 }
