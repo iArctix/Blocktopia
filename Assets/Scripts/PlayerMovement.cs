@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 500f;
+    public float moveSpeed = 5f;
     public float sensitivity = 2f;
-    public float jumpForce = 12f;
+    public float jumpForce = 10f;
     private Rigidbody rb;
     private float rotationX = 0f;
 
@@ -19,15 +19,15 @@ public class PlayerMovement : MonoBehaviour
         // Player movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = (transform.right * horizontalInput + transform.forward * verticalInput) * speed * Time.deltaTime;
+        Vector3 movement = (transform.right * horizontalInput + transform.forward * verticalInput).normalized * moveSpeed * Time.deltaTime;
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
 
         // Player rotation with mouse
         float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
-        rotationX -= mouseY;
+        rotationX += Input.GetAxis("Mouse Y") * sensitivity;
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(rotationX, transform.localEulerAngles.y + mouseX, 0f);
+        transform.localRotation = Quaternion.Euler(0f, transform.localEulerAngles.y + mouseX, 0f);
+        Camera.main.transform.localRotation = Quaternion.Euler(-rotationX, 0f, 0f);
 
         // Player jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
