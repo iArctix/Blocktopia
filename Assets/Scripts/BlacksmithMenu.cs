@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BlacksmithMenu : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class BlacksmithMenu : MonoBehaviour
     public GameObject swordarrow;
     public GameObject pickaxearrow;
     public GameObject axearrow;
+
+    public TextMeshProUGUI Toolinfo;
+
+    public 
     
     void Start()
     {
@@ -72,35 +77,47 @@ public class BlacksmithMenu : MonoBehaviour
     }
     void bow()
     {
+        //Selecting UI
         tool.sprite = bowimg;
         bowarrow.SetActive(true);
         swordarrow.SetActive(false);
         pickaxearrow.SetActive(false);
         axearrow.SetActive(false);
+        //Info
+        Toolinfo.text = " The bow should be used for ranged combat. Its Current Level is  " + stats.bowlevel;
     }
     void sword()
     {
+        //Selecting UI
         tool.sprite = swordimg;
         bowarrow.SetActive(false);
         swordarrow.SetActive(true);
         pickaxearrow.SetActive(false);
         axearrow.SetActive(false);
+        //Info
+        Toolinfo.text = " The sword should be used for melee combat its current level is" + stats.swordlevel;
     }
     void axe()
     {
+        //Selecting UI
         tool.sprite = axeimg;
         bowarrow.SetActive(false);
         swordarrow.SetActive(false);
         pickaxearrow.SetActive(false);
         axearrow.SetActive(true);
+        //Info
+        Toolinfo.text = " The axe can chop down certain trees for resources the current tier is  " + stats.axelevel;
     }
     void pickaxe()
     {
+        //Selecting UI
         tool.sprite = pickaxeimg;
         bowarrow.SetActive(false);
         swordarrow.SetActive(false);
         pickaxearrow.SetActive(true);
         axearrow.SetActive(false);
+        //Info
+        Toolinfo.text = " The pickaxe can mine certain ores for resources the current tier is  " + stats.pickaxelevel;
     }
 
 
