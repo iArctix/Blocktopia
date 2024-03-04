@@ -25,6 +25,16 @@ public class BlacksmithMenu : MonoBehaviour
     public TextMeshProUGUI Woodneeded;
     public TextMeshProUGUI coinsneeded;
 
+    public Image ore;
+    public Image wood;
+    public Sprite oak;
+    public Sprite birch;
+    public Sprite Ash;
+    public Sprite copper;
+    public Sprite gold;
+    public Sprite titanium;
+
+
     
 
     public 
@@ -36,12 +46,15 @@ public class BlacksmithMenu : MonoBehaviour
         swordarrow.SetActive(false);
         pickaxearrow.SetActive(false);
         axearrow.SetActive(false);
+        wood.sprite = oak;
+        ore.sprite = copper;
     }
 
     // Update is called once per frame
     void Update()
     {
         selectedtool(); 
+
     }
 
     public void bowbutton()
@@ -94,24 +107,32 @@ public class BlacksmithMenu : MonoBehaviour
 
         if(stats.bowlevel == 1)
         {
+            wood.sprite = oak;
+            ore.sprite = copper;
             Oreneeded.text = "Copper Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Oak Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.bowlevel == 2)
         {
+            wood.sprite = birch;
+            ore.sprite = gold;
             Oreneeded.text = "Gold Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Birch Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if(stats.bowlevel == 3)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Titanium Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Ash Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if(stats.bowlevel == 4)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Max Level";
             Woodneeded.text = "Max Level";
             coinsneeded.text = "Max Level";
@@ -130,24 +151,32 @@ public class BlacksmithMenu : MonoBehaviour
 
         if (stats.swordlevel == 1)
         {
+            wood.sprite = oak;
+            ore.sprite = copper;
             Oreneeded.text = "Copper Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Oak Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.swordlevel == 2)
         {
+            wood.sprite = birch;
+            ore.sprite = gold;
             Oreneeded.text = "Gold Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Birch Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.swordlevel == 3)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Titanium Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Ash Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.swordlevel == 4)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Max Level";
             Woodneeded.text = "Max Level";
             coinsneeded.text = "Max Level";
@@ -156,6 +185,7 @@ public class BlacksmithMenu : MonoBehaviour
     }
     void axe()
     {
+        
         //Selecting UI
         tool.sprite = axeimg;
         bowarrow.SetActive(false);
@@ -167,24 +197,32 @@ public class BlacksmithMenu : MonoBehaviour
 
         if (stats.axelevel == 1)
         {
+            wood.sprite = oak;
+            ore.sprite = copper;
             Oreneeded.text = "Copper Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Oak Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.axelevel == 2)
         {
+            wood.sprite = birch;
+            ore.sprite = gold;
             Oreneeded.text = "Gold Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Birch Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.axelevel == 3)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Titanium Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Ash Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.axelevel == 4)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Max Level";
             Woodneeded.text = "Max Level";
             coinsneeded.text = "Max Level";
@@ -203,24 +241,32 @@ public class BlacksmithMenu : MonoBehaviour
 
         if (stats.pickaxelevel == 1)
         {
+            wood.sprite = oak;
+            ore.sprite = copper;
             Oreneeded.text = "Copper Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Oak Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.pickaxelevel == 2)
         {
+            wood.sprite = birch;
+            ore.sprite = gold;
             Oreneeded.text = "Gold Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Birch Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.pickaxelevel == 3)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Titanium Required " + inventory.Copper + " / " + "20";
             Woodneeded.text = " Ash Required " + inventory.Oak + " / " + "20";
             coinsneeded.text = " Coins Required " + inventory.coins + " / " + "200";
         }
         else if (stats.pickaxelevel == 4)
         {
+            wood.sprite = Ash;
+            ore.sprite = titanium;
             Oreneeded.text = "Max Level";
             Woodneeded.text = "Max Level";
             coinsneeded.text = "Max Level";
