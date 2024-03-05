@@ -931,6 +931,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &494894435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8658805624895585026, guid: 241ae41cd7b8f1c41973bc65cc43b3f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 121252171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &699208745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayui: {fileID: 8213395964629638052}
-  otherui: {fileID: 1659014440}
+  otherui: {fileID: 494894435}
   PlayerCamera: {fileID: 1366477562}
 --- !u!114 &1614733330
 MonoBehaviour:
@@ -1088,12 +1094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToActivate: {fileID: 6082539627597380246}
---- !u!1 &1659014440 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8658805624895585026, guid: 241ae41cd7b8f1c41973bc65cc43b3f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 121252171}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1701775430
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/TownScene.unity
+    guid: 912270d3367f4e1459ce71921032a3c1
+  - enabled: 1
+    path: Assets/Scenes/ForestArea.unity
+    guid: 406ad3252368c6e45b1232de1beb6e61
+  - enabled: 1
+    path: Assets/Scenes/MountainArea.unity
+    guid: 3f7dbfe747ecb8548893e1d10b333935
+  - enabled: 1
+    path: Assets/Scenes/Graveyard.unity
+    guid: 5c7b51b9b88972c48b7537861a218b47
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
