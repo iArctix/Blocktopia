@@ -18,6 +18,7 @@ public class Playerstats : ScriptableObject
     public float bowdamagemultipler = 1;
     public int playerlevel = 1;
     public int skillpoints = 0;
+    public int playertotalexp;
 
 
 
