@@ -7,12 +7,13 @@ public class HealthBar : MonoBehaviour
 {
     public Playerstats stats;
     public PlayerHealth playerhealth;
-    public Image healthBarFill;
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private Image healthfill;
     // Start is called before the first frame update
     void Start()
     {
         playerhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        healthBarFill.fillAmount = 0;
+        
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        float fillAmount = (float)playerhealth.currenthealth / stats.maxhealth;
-        healthBarFill.fillAmount = fillAmount;
+        float fillAmount = playerhealth.currenthealth / stats.maxhealth;
+        healthfill.fillAmount = fillAmount;
     }
 }
