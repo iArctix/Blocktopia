@@ -34,5 +34,10 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(10);
             Debug.Log("Health is " +  currenthealth);
         }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            TakeDamage(-10);
+        }
+
     }
 }

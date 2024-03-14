@@ -1,30 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class PlayerHealthBar : MonoBehaviour
 {
+    public Slider slider; 
+    public PlayerHealth playerHealth;
     public Playerstats stats;
-    public PlayerHealth playerhealth;
-    [SerializeField] private Slider healthBar;
-    [SerializeField] private Image healthfill;
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        
-    }
+    public Image fillImage; 
 
-    // Update is called once per frame
-    void Update()
+    public Color fullHealthColor = Color.green; 
+    public Color zeroHealthColor = Color.red; 
+
+    private void Start()
     {
+        
         UpdateHealthBar();
     }
 
+    private void Update()
+    {
+       
+        UpdateHealthBar();
+    }
+
+   
     private void UpdateHealthBar()
     {
-        float fillAmount = playerhealth.currenthealth / stats.maxhealth;
-        healthfill.fillAmount = fillAmount;
+        
+        if (slider == null || fillImage == null || playerHealth == null)
+        {
+            Debug.LogWarning("Slider, FillImage, or PlayerHealth reference not set in PlayerHealthBar script.");
+            return;
+        }
+
+        
+        slider.value = playerHealth.currenthealth / stats.maxhealth;
+
+      
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, slider.normalizedValue);
+        fillImage.fillAmount = slider.value;
     }
 }
