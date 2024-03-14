@@ -7,7 +7,10 @@ public class DeathTotown : MonoBehaviour
 {
     public InventoryData inventory;
     // Start is called before the first frame update
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
     public void Respawn()
     {
         if (inventory.coins > 100) 
@@ -20,5 +23,6 @@ public class DeathTotown : MonoBehaviour
         }
 
         SceneManager.LoadScene(0);
+        Cursor.lockState= CursorLockMode.Locked;
     }
 }

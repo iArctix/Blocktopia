@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [CreateAssetMenu(fileName = "New player Data", menuName = "playerstats/playerdata")]
@@ -13,6 +14,7 @@ public class Playerstats : ScriptableObject
     public int axelevel = 1;
     //Playerstats
     public float maxhealth;
+    public float currenthealth;
     //When player levels they get a skill point to spend on upgrading stats
     public float sworddamagemultiplier = 1;
     public float bowdamagemultipler = 1;

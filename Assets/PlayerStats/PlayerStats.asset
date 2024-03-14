@@ -16,8 +16,10 @@ MonoBehaviour:
   swordlevel: 2
   pickaxelevel: 3
   axelevel: 4
-  maxhealth: 0
+  maxhealth: 100
+  currenthealth: 100
   sworddamagemultiplier: 1
   bowdamagemultipler: 1
   playerlevel: 1
   skillpoints: 0
+  playertotalexp: 0
