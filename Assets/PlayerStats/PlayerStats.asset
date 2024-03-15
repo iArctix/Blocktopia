@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bowlevel: 1
   swordlevel: 2
-  pickaxelevel: 3
+  pickaxelevel: 4
   axelevel: 4
   maxhealth: 100
   currenthealth: 100

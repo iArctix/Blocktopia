@@ -19,3 +19,5 @@ MonoBehaviour:
   roamingRadius: 10
   numWaypoints: 30
   homeRegionRadius: 40
+  coins: 100
+  exp: 50
