@@ -62,6 +62,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -149,8 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482c21152b08adb45a6eefde05585854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 2e2aa39697ec92b488f2b590e525947d, type: 2}
+  settings: {fileID: 11400000, guid: a999947804d75d344a1435417dd2a236, type: 2}
   player: {fileID: 0}
+  playerLeveling: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 33aa295d421128141b923a77a235eac5, type: 2}
 --- !u!195 &7174341330948641285
 NavMeshAgent:
   m_ObjectHideFlags: 0

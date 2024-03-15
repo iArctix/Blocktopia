@@ -11,6 +11,10 @@ public class EnemySettings : ScriptableObject
     public int numWaypoints = 10;
     public float homeRegionRadius = 20f;
 
+    //Rewards
+    public int coins;
+    public int exp;
+
     // Add more customizable properties as needed
 }
 

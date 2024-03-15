@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
     public EnemySettings settings;
     public Transform player;
     private float currentHealth;
+    public PlayerLeveling playerLeveling;
+    public InventoryData inventory;
 
     void Start()
     {
@@ -26,7 +28,12 @@ public class EnemyController : MonoBehaviour
         
         if (currentHealth <= 0)
         {
+
             Die();
+            playerLeveling.CheckForLevelUp(settings.exp);
+            inventory.coins += settings.coins;
+           
+
         }
         else
         {
