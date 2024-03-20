@@ -539,6 +539,12 @@ PrefabInstance:
       propertyPath: swordicon
       value: 
       objectReference: {fileID: 6278018930648307527}
+    - target: {fileID: 2816367819409938935, guid: 233c7a833221e5246b4ebdbff53f55f4,
+        type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75,
+        type: 2}
     - target: {fileID: 4666049075417874081, guid: 233c7a833221e5246b4ebdbff53f55f4,
         type: 3}
       propertyPath: m_LocalPosition.x

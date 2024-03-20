@@ -100,6 +100,7 @@ MonoBehaviour:
   lifetime: 10
   damage: 10
   isStuck: 0
+  stats: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75, type: 2}
 --- !u!96 &3750097208996259309
 TrailRenderer:
   serializedVersion: 3

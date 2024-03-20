@@ -4,6 +4,7 @@ public class Sword : MonoBehaviour
 {
     public Animator animator; // Reference to the Animator component
     public float damage = 20f;
+    public Playerstats stats;
 
     void Update()
     {
@@ -45,7 +46,7 @@ public class Sword : MonoBehaviour
             if (enemyController != null)
             {
                 // Deal damage to the enemy
-                enemyController.TakeDamage(damage);
+                enemyController.TakeDamage(damage + stats.Strengthlevel);
             }
         }
     }

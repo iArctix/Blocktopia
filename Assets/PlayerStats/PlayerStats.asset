@@ -23,4 +23,4 @@ MonoBehaviour:
   playertotalexp: 100
   HealthLevel: 0
   GatherSpeedLevel: 0
-  Strengthlevel: 0
+  Strengthlevel: 10

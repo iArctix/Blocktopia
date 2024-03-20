@@ -4,7 +4,9 @@ public class Arrow : MonoBehaviour
 {
     public float lifetime = 10f; 
     public float damage = 10f; 
-    public bool isStuck = false; 
+    public bool isStuck = false;
+
+    public Playerstats stats;
 
     void Start()
     {
@@ -22,7 +24,7 @@ public class Arrow : MonoBehaviour
             if (enemyController != null)
             {
                 
-                enemyController.TakeDamage(damage);
+                enemyController.TakeDamage(damage + stats.Strengthlevel);
             }
 
            
