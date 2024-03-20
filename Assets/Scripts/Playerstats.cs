@@ -16,12 +16,14 @@ public class Playerstats : ScriptableObject
     public float maxhealth;
     public float currenthealth;
     //When player levels they get a skill point to spend on upgrading stats
-    public float sworddamagemultiplier = 1;
-    public float bowdamagemultipler = 1;
     public int playerlevel = 1;
     public int skillpoints = 0;
     public int playertotalexp;
 
+    //Skills
+    public int HealthLevel;
+    public int GatherSpeedLevel;
+    public int Strengthlevel;
 
 
 
