@@ -34,7 +34,7 @@ public class PlayerHealthBar : MonoBehaviour
         }
 
         
-        slider.value = playerHealth.currenthealth / stats.maxhealth;
+        slider.value = stats.currenthealth / stats.maxhealth;
 
       
         fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, slider.normalizedValue);

@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public Playerstats stats;
-    public float currenthealth;
+   
     // Start is called before the first frame update
     void Start()
     {
-        currenthealth = stats.maxhealth;
+        stats.maxhealth = stats.maxhealth + (stats.HealthLevel * 10);
+        stats.currenthealth = stats.maxhealth ;
     }
+    
     public void TakeDamage(int damageAmount)
     {
-        currenthealth -= damageAmount;
-        if(currenthealth <= 0) 
+        stats.currenthealth -= damageAmount;
+        if(stats.currenthealth <= 0) 
         {
             Die();
         }
@@ -29,10 +31,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L)) 
+        
+        if (Input.GetKeyDown(KeyCode.L)) 
         {
             TakeDamage(10);
-            Debug.Log("Health is " +  currenthealth);
+            
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
