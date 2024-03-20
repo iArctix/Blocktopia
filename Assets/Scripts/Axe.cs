@@ -5,7 +5,7 @@ public class Axe : MonoBehaviour
     public Animator animator; // Reference to the Animator component
     public GameObject levelRequirementUI; // Reference to the UI GameObject for displaying level requirement message
     public float reachDistance = 3f; // Adjust this value to change how far the player can interact with objects
-    public float choppingTime = 3f; // Time it takes to chop the wood
+    private float choppingTime = 3f; // Time it takes to chop the wood
 
     bool isChopping = false; // Flag to track if the player is currently chopping
     float choppingTimer = 0f; // Timer for chopping duration
@@ -43,7 +43,7 @@ public class Axe : MonoBehaviour
                 choppingTimer += Time.deltaTime;
 
                 // Check if chopping time is reached
-                if (choppingTimer >= choppingTime)
+                if (choppingTimer >= choppingTime - (playerstats.GatherSpeedLevel / 10))
                 {
                     CompleteChopping();
                 }

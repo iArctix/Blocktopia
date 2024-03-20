@@ -69,23 +69,39 @@ public class SkillUI : MonoBehaviour
 
     public void gatherplus()
     {
-        stats.skillpoints -= 1;
-        stats.GatherSpeedLevel += 1;
+        if(stats.skillpoints> 0)
+        {
+            stats.skillpoints -= 1;
+            stats.GatherSpeedLevel += 1;
+        }
+        
     }
     public void gatherminus()
     {
-        stats.skillpoints += 1;
-        stats.GatherSpeedLevel -= 1;
+        if(stats.GatherSpeedLevel > 0)
+        {
+            stats.skillpoints += 1;
+            stats.GatherSpeedLevel -= 1;
+        }
+       
     }
     public void strengthplus()
     {
-        stats.skillpoints -= 1;
-        stats.Strengthlevel += 1;
+        if(stats.skillpoints > 0)
+        {
+            stats.skillpoints -= 1;
+            stats.Strengthlevel += 1;
+        }
+       
     }
     public void strengthminus()
     {
-        stats.skillpoints += 1;
-        stats.Strengthlevel -= 1;
+        if(stats.Strengthlevel > 0)
+        {
+            stats.skillpoints += 1;
+            stats.Strengthlevel -= 1;
+        }
+        
     }
 
 }
