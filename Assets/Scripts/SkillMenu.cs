@@ -52,11 +52,41 @@ public class SkillUI : MonoBehaviour
     }
     public void healthplus()
     {
-
+        if(stats.skillpoints > 0)
+        {
+            stats.skillpoints -= 1;
+            stats.HealthLevel += 1;
+        }
     }
     public void healthminus()
     {
+        if(stats.HealthLevel > 0)
+        {
+            stats.skillpoints += 1;
+            stats.HealthLevel -= 1;
+        }
+    }
 
+    public void gatherplus()
+    {
+        stats.skillpoints -= 1;
+        stats.GatherSpeedLevel += 1;
+    }
+    public void gatherminus()
+    {
+        stats.skillpoints += 1;
+        stats.GatherSpeedLevel -= 1;
+    }
+    public void strengthplus()
+    {
+        stats.skillpoints -= 1;
+        stats.Strengthlevel += 1;
+    }
+    public void strengthminus()
+    {
+        stats.skillpoints += 1;
+        stats.Strengthlevel -= 1;
     }
 
 }
+
