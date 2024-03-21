@@ -8,10 +8,12 @@ public class EnemyController : MonoBehaviour
     private float currentHealth;
     public PlayerLeveling playerLeveling;
     public InventoryData inventory;
+    private PickupUI pickupUI;
 
     void Start()
     {
         currentHealth = settings.maxHealth;
+        pickupUI = GameObject.Find("PickupUi").GetComponent<PickupUI>();
     }
 
     void Update()
@@ -32,6 +34,8 @@ public class EnemyController : MonoBehaviour
             Die();
             playerLeveling.CheckForLevelUp(settings.exp);
             inventory.coins += settings.coins;
+            pickupUI.DisplayPickup("XP", settings.exp);
+            pickupUI.DisplayPickup("Coins", settings.coins);
            
 
         }
