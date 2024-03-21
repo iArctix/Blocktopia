@@ -10,7 +10,7 @@ public class PlayerLevel : MonoBehaviour
     public Image fillImage;
 
     public Color fullexpColor = Color.yellow;
-    public Color zeroexpColor = Color.blue;
+    public Color zeroexpColor = Color.green;
 
     private void Start()
     {
@@ -35,10 +35,7 @@ public class PlayerLevel : MonoBehaviour
     private void UpdateEXPBar()
     {
 
-
-
-        slider.value = ((stats.playertotalexp - (stats.playerlevel * 100))/100);
-
+        slider.value = ((stats.playertotalexp - (stats.playerlevel * 100)) / 100);
 
         fillImage.color = Color.Lerp(zeroexpColor, fullexpColor, slider.normalizedValue);
         fillImage.fillAmount = slider.value;
