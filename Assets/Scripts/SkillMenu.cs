@@ -66,6 +66,11 @@ public class SkillUI : MonoBehaviour
             stats.skillpoints += 1;
             stats.HealthLevel -= 1;
             stats.maxhealth -= 10;
+
+            if(stats.currenthealth > stats.maxhealth)
+            {
+                stats.currenthealth = stats.maxhealth;
+            }
         }
     }
 
