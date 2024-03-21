@@ -4,8 +4,8 @@ using TMPro;
 
 public class PlayerLeveling : MonoBehaviour
 {
-    public Playerstats playerstats; // Reference to the PlayerStats Scriptable Object
-    public int xpPerLevel = 100; // Amount of XP required for each level
+    public Playerstats playerstats; 
+    public int xpPerLevel = 100; 
 
     private void Start()
     {
@@ -14,23 +14,49 @@ public class PlayerLeveling : MonoBehaviour
 
     private void Update()
     {
-        // You might want to update the slider continuously if needed
-        // UpdateSlider();
+        
     }
 
-    // Method to check for level up conditions
+
     public void CheckForLevelUp(int xpGained)
     {
+
+        Debug.Log("XP: " + playerstats.playertotalexp + " + " + xpGained);
+
+        float remainderxp;
+
+        if (playerstats.playerlevel < 1)
+        {
+            remainderxp = playerstats.playertotalexp;
+        }
+        else
+        {
+            remainderxp = playerstats.playertotalexp - (100 * playerstats.playerlevel);
+        }
+
+        remainderxp += xpGained;
         playerstats.playertotalexp += xpGained;
 
-        // Check if the accumulated XP is enough for one or more level ups
-        while (playerstats.playertotalexp >= playerstats.playerlevel * xpPerLevel)
+        Debug.Log("Rem " + remainderxp);
+
+        if (remainderxp >= 100)
         {
-            LevelUp();
+            Debug.Log("LEVEL UP");
+           
         }
+        else
+        {
+            Debug.Log("SAME LEVEL");
+            
+        }
+
+
+
+
+
     }
 
-    // Method to level up the player
+   
     private void LevelUp()
     {
         playerstats.playerlevel++;
