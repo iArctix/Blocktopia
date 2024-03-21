@@ -16,7 +16,7 @@ public class Playerstats : ScriptableObject
     public float maxhealth;
     public float currenthealth;
     //When player levels they get a skill point to spend on upgrading stats
-    public int playerlevel = 1;
+    public float playerlevel = 1;
     public int skillpoints = 0;
     public int playertotalexp;
 
