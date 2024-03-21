@@ -56,6 +56,7 @@ public class SkillUI : MonoBehaviour
         {
             stats.skillpoints -= 1;
             stats.HealthLevel += 1;
+            stats.maxhealth += 10;
         }
     }
     public void healthminus()
@@ -64,6 +65,7 @@ public class SkillUI : MonoBehaviour
         {
             stats.skillpoints += 1;
             stats.HealthLevel -= 1;
+            stats.maxhealth -= 10;
         }
     }
 

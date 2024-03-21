@@ -25,6 +25,11 @@ public class Playerstats : ScriptableObject
     public int GatherSpeedLevel;
     public int Strengthlevel;
 
+    void Update()
+    { 
+       
+
+    }
 
 
 
