@@ -7,61 +7,33 @@ public class PlayerLeveling : MonoBehaviour
     public Playerstats playerstats; 
     public int xpPerLevel = 100; 
 
-    private void Start()
-    {
-       
-    }
-
-    private void Update()
-    {
-        
-    }
-
-
     public void CheckForLevelUp(int xpGained)
     {
-
         Debug.Log("XP: " + playerstats.playertotalexp + " + " + xpGained);
 
-        float remainderxp;
+        // Calculate the total experience including the gained experience
+        int totalExp = playerstats.playertotalexp + xpGained;
 
-        if (playerstats.playerlevel < 1)
-        {
-            remainderxp = playerstats.playertotalexp;
-        }
-        else
-        {
-            remainderxp = playerstats.playertotalexp - (100 * playerstats.playerlevel);
-        }
+        // Calculate the remainder experience after deducting full levels
+        int remainderExp = totalExp % 100;
 
-        remainderxp += xpGained;
-        playerstats.playertotalexp += xpGained;
-
-        Debug.Log("Rem " + remainderxp);
-
-        if (remainderxp >= 100)
+        // Check if the player leveled up
+        if (totalExp >= 100 && remainderExp < playerstats.playertotalexp % 100)
         {
-            Debug.Log("LEVEL UP");
-           
-        }
-        else
-        {
-            Debug.Log("SAME LEVEL");
-            
+            LevelUp();
         }
 
+        // Update the total experience
+        playerstats.playertotalexp = totalExp;
 
-
-
-
+        Debug.Log("Remainder XP: " + remainderExp);
     }
 
-   
     private void LevelUp()
     {
         playerstats.playerlevel++;
         playerstats.skillpoints++;
     }
 
-  
+
 }

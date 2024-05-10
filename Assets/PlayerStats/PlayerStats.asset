@@ -22,5 +22,5 @@ MonoBehaviour:
   skillpoints: 0
   playertotalexp: 0
   HealthLevel: 0
-  GatherSpeedLevel: 0
+  GatherSpeedLevel: 2
   Strengthlevel: 10
