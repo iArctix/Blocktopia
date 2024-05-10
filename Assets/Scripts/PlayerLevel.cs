@@ -34,8 +34,9 @@ public class PlayerLevel : MonoBehaviour
 
     private void UpdateEXPBar()
     {
-
-        slider.value = ((stats.playertotalexp - (stats.playerlevel * 100)) / 100);
+        float expWithinLevel = ((float)stats.playertotalexp % 100);
+        
+        slider.value = expWithinLevel / 100;
 
         fillImage.color = Color.Lerp(zeroexpColor, fullexpColor, slider.normalizedValue);
         fillImage.fillAmount = slider.value;
