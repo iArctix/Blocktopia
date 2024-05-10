@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: a999947804d75d344a1435417dd2a236, type: 2}
-  player: {fileID: 0}
   playerLeveling: {fileID: 0}
   inventory: {fileID: 11400000, guid: 33aa295d421128141b923a77a235eac5, type: 2}
 --- !u!195 &7174341330948641285
@@ -175,5 +174,5 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 6
   m_ObstacleAvoidanceType: 4
