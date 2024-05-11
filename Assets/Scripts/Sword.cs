@@ -1,10 +1,14 @@
 using UnityEngine;
+using System.Collections;
 
 public class Sword : MonoBehaviour
 {
-    public Animator animator; // Reference to the Animator component
+    public Animator animator;
     public float damage = 20f;
     public Playerstats stats;
+    public float range = 1f;
+    private bool hitRegistered = false;
+    public float hitDelay = 1f; // Delay in seconds before another hit can occur
 
     void Update()
     {
@@ -12,6 +16,10 @@ public class Sword : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             ActivateSword();
+            if (!hitRegistered)
+            {
+                CheckForHit();
+            }
         }
         else
         {
@@ -36,18 +44,32 @@ public class Sword : MonoBehaviour
             animator.SetBool("IsActive", false);
         }
     }
-    void OnCollisionEnter(Collision collision)
+
+    void CheckForHit()
     {
-        // Check if the sword collides with an enemy
-        if (collision.gameObject.CompareTag("Enemy"))
+        // Cast a ray forward from the sword
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range))
         {
-            // Get the EnemyController component of the collided enemy
-            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-            if (enemyController != null)
+            // Check if the ray hit an enemy
+            if (hit.collider.CompareTag("Enemy"))
             {
-                // Deal damage to the enemy
-                enemyController.TakeDamage(damage + stats.Strengthlevel);
+                // Get the EnemyController component of the collided enemy
+                EnemyController enemyController = hit.collider.GetComponent<EnemyController>();
+                if (enemyController != null)
+                {
+                    // Deal damage to the enemy
+                    enemyController.TakeDamage(damage + stats.Strengthlevel);
+                    hitRegistered = true; // Set hitRegistered to true to prevent further damage in this swing
+                    StartCoroutine(ResetHit());
+                }
             }
         }
+    }
+
+    IEnumerator ResetHit()
+    {
+        yield return new WaitForSeconds(hitDelay);
+        hitRegistered = false; // Reset hitRegistered after the delay
     }
 }
