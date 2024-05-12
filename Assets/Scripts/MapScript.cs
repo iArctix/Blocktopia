@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class MapScript : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class MapScript : MonoBehaviour
     public TextMeshProUGUI mountaintext;
     public GameObject Graveyard;
     public TextMeshProUGUI graveyardtext;
+
+    public Image mountain;
+    public Image graveyard;
+
+    public Playerstats stats;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +31,39 @@ public class MapScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        mountaincheck();
+        //graveyardcheck();
+    }
+
+    void mountaincheck()
+    {
+        if (stats.playerlevel < 10)
+        {
+          
+            mountaintext.color = Color.red;
+            mountaintext.text = "Lvl 10 To Unlock ";
+            mountain.color = Color.black;
+        }
+        else
+        {
+            mountaintext.text = "Mountain";
+            mountain.color = Color.white;
+
+        }
+    }
+    void graveyardcheck()
+    {
+        if (stats.playerlevel < 20)
+        {
+
+            mountaintext.color = Color.red;
+            mountaintext.text = "LvL 20 To Unlock ";
+        }
+        else
+        {
+            mountaintext.text = "Graveyard";
+            mountaintext.color = Color.white;
+        }
     }
     public void townbutton()
     {
@@ -37,7 +75,15 @@ public class MapScript : MonoBehaviour
     }
     public void MountainButton()
     {
-        SceneManager.LoadScene(3);
+        if (stats.playerlevel < 10)
+        {
+            
+        }
+        else
+        {
+            SceneManager.LoadScene(3);
+        }
+        
     }
     public void GraveyardButton()
     {
@@ -61,7 +107,7 @@ public class MapScript : MonoBehaviour
     public void forestenter()
     {
        
-        AreaInfo.text = "The first area a lush woodland with basic resources to gather. Watch out for the creatures some are friendly some are not and try your best to beat the areas boss.";
+        AreaInfo.text = "The first area a lush woodland with basic resources to gather. Watch out for the creatures some are friendly some are not .";
         foresttext.color = Color.green;
     }
     public void forestexit()
@@ -73,15 +119,34 @@ public class MapScript : MonoBehaviour
 
     public void mountainenter()
     {
-
-        AreaInfo.text = "This second area is an arid mountainous area. CReatures are more hostile and harder to kill. Resources are scarcer especially wood. Be careful and make sure you are equiped";
-        mountaintext.color = Color.green;
+        if(stats.playerlevel <= 10)
+        {
+            AreaInfo.text = "???????????";
+            mountaintext.color = Color.red;
+            mountaintext.text = "LvL 10 To Unlock ";
+        }
+        else
+        {
+            AreaInfo.text = "This second area is an arid mountainous area. Creatures are more hostile and harder to kill. Resources are scarcer especially wood. Be careful and make sure you are equiped";
+            mountaintext.color = Color.green;
+        }
+        
     }
     public void mountainexit()
     {
 
-        AreaInfo.text = " ";
-        mountaintext.color = Color.white;
+        if (stats.playerlevel < 10)
+        {
+            AreaInfo.text = " ";
+            mountaintext.color = Color.red;
+            mountaintext.text = "LEVEL 10 TO Unlock ";
+        }
+        else
+        {
+            AreaInfo.text = " ";
+            mountaintext.color = Color.white;
+            mountaintext.text = "Mountain";
+        }
     }
     public void graveyardenter()
     {
