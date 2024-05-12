@@ -31,11 +31,11 @@ public class MapScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mountaincheck();
-        //graveyardcheck();
+       // mountaincheck();
+       // graveyardcheck();
     }
 
-    void mountaincheck()
+    public void mountaincheck()
     {
         if (stats.playerlevel < 10)
         {
@@ -46,23 +46,26 @@ public class MapScript : MonoBehaviour
         }
         else
         {
-            mountaintext.text = "Mountain";
             mountain.color = Color.white;
+            mountaintext.color = Color.white;
+            mountaintext.text = "Mountain";
 
         }
     }
-    void graveyardcheck()
+    public void graveyardcheck()
     {
         if (stats.playerlevel < 20)
         {
 
-            mountaintext.color = Color.red;
-            mountaintext.text = "LvL 20 To Unlock ";
+            graveyardtext.color = Color.red;
+            graveyardtext.text = "LvL 20 To Unlock ";
+            graveyard.color = Color.black;
         }
         else
         {
-            mountaintext.text = "Graveyard";
-            mountaintext.color = Color.white;
+            graveyardtext.text = "Graveyard";
+            graveyard.color= Color.white;
+            graveyardtext.color = Color.white;
         }
     }
     public void townbutton()
@@ -87,15 +90,25 @@ public class MapScript : MonoBehaviour
     }
     public void GraveyardButton()
     {
-        SceneManager.LoadScene(4);
+        if (stats.playerlevel < 20)
+        {
+            
+        }
+        else
+        {
+            SceneManager.LoadScene(4);
+        }
+        
     }
 
 
     public void townenter()
     {
-       
+        mountaincheck();
+        graveyardcheck();
         AreaInfo.text = "This area is your home and is safe. Come here to rest rejuvinate and forge better equiptment";
         towntext.color = Color.green;
+       
     }
     public void townexit()
     {
@@ -119,11 +132,10 @@ public class MapScript : MonoBehaviour
 
     public void mountainenter()
     {
-        if(stats.playerlevel <= 10)
+        if (stats.playerlevel < 10)
         {
             AreaInfo.text = "???????????";
             mountaintext.color = Color.red;
-            mountaintext.text = "LvL 10 To Unlock ";
         }
         else
         {
@@ -139,25 +151,38 @@ public class MapScript : MonoBehaviour
         {
             AreaInfo.text = " ";
             mountaintext.color = Color.red;
-            mountaintext.text = "LEVEL 10 TO Unlock ";
         }
         else
         {
             AreaInfo.text = " ";
             mountaintext.color = Color.white;
-            mountaintext.text = "Mountain";
         }
     }
     public void graveyardenter()
     {
-
-        AreaInfo.text = "The Graveyard is a haunted scary place. All creatures are out to get you and the dark eerie atmosphere makes it worse for you. Watch out they may come sneak up and haunt you.";
-        graveyardtext.color = Color.green;
+        if (stats.playerlevel < 20)
+        {
+            AreaInfo.text = "???????????";
+            graveyardtext.color = Color.red;
+        }
+        else
+        {
+            AreaInfo.text = "The Graveyard is a haunted scary place. All creatures are out to get you and the dark eerie atmosphere makes it worse for you. Watch out they may come sneak up and haunt you.";
+            graveyardtext.color = Color.green;
+        }
+       
     }
     public void graveyardexit()
     {
-
-        AreaInfo.text = " ";
-        graveyardtext.color = Color.white;
+        if (stats.playerlevel < 10)
+        {
+            AreaInfo.text = " ";
+            graveyardtext.color = Color.red;
+        }
+        else
+        {
+            AreaInfo.text = " ";
+            graveyardtext.color = Color.white;
+        }
     }
 }

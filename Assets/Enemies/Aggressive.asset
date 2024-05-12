@@ -16,7 +16,7 @@ MonoBehaviour:
   behavior: 0
   attackRange: 5
   detectionRange: 3
-  roamingRadius: 10
+  roamingRadius: 100
   numWaypoints: 30
   homeRegionRadius: 40
   coins: 100

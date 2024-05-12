@@ -24,30 +24,29 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        // If the player is within detection range, update behavior accordingly
+       
         if (Vector3.Distance(transform.position, player.position) <= settings.detectionRange)
         {
-            // Example: If the enemy is passive, but the player is detected, switch to neutral behavior
+           
             if (settings.behavior == EnemyBehavior.Passive)
             {
                 SetBehavior(EnemyBehavior.Neutral);
             }
         }
 
-        // Update behavior specific logic
-        // Example: If the enemy is roaming, move randomly within a certain radius
+      
         if (settings.behavior == EnemyBehavior.Passive)
         {
-            // Example: Move randomly within a roaming radius
+           
             Roam();
         }
         else if (settings.behavior == EnemyBehavior.Neutral)
         {
-            // Implement neutral behavior logic
+            
         }
         else if (settings.behavior == EnemyBehavior.Aggressive)
         {
-            // Implement aggressive behavior logic
+           
         }
     }
 

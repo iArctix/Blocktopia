@@ -18,9 +18,9 @@ MonoBehaviour:
   axelevel: 4
   maxhealth: 100
   currenthealth: 100
-  playerlevel: 11
-  skillpoints: 0
-  playertotalexp: 50
+  playerlevel: 0
+  skillpoints: 2
+  playertotalexp: 200
   HealthLevel: 0
   GatherSpeedLevel: 2
   Strengthlevel: 10

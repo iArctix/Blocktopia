@@ -1156,6 +1156,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1862542594}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &42944003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5294930777274412689, guid: 241ae41cd7b8f1c41973bc65cc43b3f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 121252171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121252176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &42944004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5192999044961857122, guid: 241ae41cd7b8f1c41973bc65cc43b3f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 121252171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121252174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &44889881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52574,6 +52598,9 @@ MonoBehaviour:
   mountaintext: {fileID: 121252175}
   Graveyard: {fileID: 121252174}
   graveyardtext: {fileID: 121252173}
+  mountain: {fileID: 42944003}
+  graveyard: {fileID: 42944004}
+  stats: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75, type: 2}
 --- !u!114 &6003444653566382637
 MonoBehaviour:
   m_ObjectHideFlags: 0
