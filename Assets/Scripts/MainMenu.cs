@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
         startindicator.SetActive(false);
         endindicator.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 1f;
     }
 
     public void Startbut()
