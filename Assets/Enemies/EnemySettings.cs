@@ -7,8 +7,7 @@ public class EnemySettings : ScriptableObject
     public EnemyBehavior behavior = EnemyBehavior.Aggressive;
     public float attackRange = 5f;
     public float detectionRange = 10f; // Range at which the enemy detects the player
-    public float roamingRadius = 10f; // Radius within which the enemy roams
-    public int numWaypoints = 10;
+    public float roamingRadius = 10f; // Radius within which the enemy roam
     public float homeRegionRadius = 20f;
 
     //Rewards

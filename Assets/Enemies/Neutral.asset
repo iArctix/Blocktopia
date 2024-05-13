@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d39bfac195f4b0048a068bca5bf1c8c2, type: 3}
-  m_Name: Aggressive
+  m_Name: Neutral
   m_EditorClassIdentifier: 
   maxHealth: 100
-  behavior: 2
+  behavior: 1
   attackRange: 5
-  detectionRange: 5
-  roamingRadius: 100
+  detectionRange: 10
+  roamingRadius: 30
   homeRegionRadius: 40
   coins: 100
   exp: 50
