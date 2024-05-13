@@ -7,9 +7,10 @@ public class EnemyController : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private float currentHealth;
-    private Vector3 homePosition; // Added to store the initial position for roaming
-    private bool isChasing = false; // Added to track chasing state
-    private bool isFleeing = false; // Added to track fleeing state
+    private Vector3 homePosition;
+    private bool isChasing = false;
+    private bool isFleeing = false;
+    private float attackCooldown = 0f; // Added attack cooldown
 
     // Reference to other scripts for XP, coins, and UI
     public PlayerLeveling playerLeveling;
@@ -27,14 +28,13 @@ public class EnemyController : MonoBehaviour
         playerLeveling = FindObjectOfType<PlayerLeveling>();
         pickupUI = FindObjectOfType<PickupUI>();
 
-        // Set initial behavior based on EnemySettings
         if (settings.behavior == EnemyBehavior.Passive)
         {
-            Roam(); // Passive enemies start by roaming
+            Roam();
         }
-        else if (settings.behavior == EnemyBehavior.Neutral )
+        else if (settings.behavior == EnemyBehavior.Neutral)
         {
-            agent.SetDestination(homePosition); // Start by roaming around the home position
+            agent.SetDestination(homePosition);
         }
         else if (settings.behavior == EnemyBehavior.Aggressive)
         {
@@ -46,9 +46,8 @@ public class EnemyController : MonoBehaviour
     {
         if (!isChasing && !isFleeing)
         {
-            if (settings.behavior == EnemyBehavior.Neutral && !isChasing)
+            if (settings.behavior == EnemyBehavior.Neutral)
             {
-                // Roaming behavior for neutral enemies
                 if (!agent.hasPath || agent.remainingDistance < 0.5f)
                 {
                     Roam();
@@ -56,7 +55,6 @@ public class EnemyController : MonoBehaviour
             }
             else if (settings.behavior == EnemyBehavior.Passive)
             {
-                // Roaming behavior for passive enemies
                 if (!agent.hasPath || agent.remainingDistance < 0.5f)
                 {
                     Roam();
@@ -64,10 +62,14 @@ public class EnemyController : MonoBehaviour
             }
             else if (settings.behavior == EnemyBehavior.Aggressive)
             {
-                // Roaming behavior for passive enemies
                 if (!agent.hasPath || agent.remainingDistance < 0.5f)
                 {
                     Roam();
+                }
+                // Check if player is within detection range for aggressive enemies
+                if (Vector3.Distance(transform.position, player.position) < settings.detectionRange)
+                {
+                    isChasing = true;
                 }
             }
         }
@@ -75,40 +77,50 @@ public class EnemyController : MonoBehaviour
         {
             if (isChasing)
             {
-                // Chasing behavior for neutral and aggressive enemies
                 agent.SetDestination(player.position);
+                // Check if player is within attack range and cooldown has elapsed
+                if (Vector3.Distance(transform.position, player.position) <= settings.attackRange && attackCooldown <= 0f)
+                {
+                    Attack();
+                }
             }
             else if (isFleeing)
             {
-                // Fleeing behavior for passive enemies
                 agent.SetDestination(transform.position - (player.position - transform.position).normalized * settings.detectionRange);
             }
 
-            // Check if the player is out of range
             if (Vector3.Distance(transform.position, player.position) > settings.detectionRange)
             {
                 if (isChasing)
                 {
-                    // Stop chasing when the player is out of range and resume roaming
                     isChasing = false;
                     Roam();
                 }
                 else if (isFleeing)
                 {
-                    // Resume roaming when player is out of detection range
                     isFleeing = false;
                     Roam();
                 }
             }
         }
 
-        inrange();
+        if (attackCooldown > 0f)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
+    }
 
+    void Attack()
+    {
+        // Perform attack on player
+        player.GetComponent<PlayerHealth>().TakeDamage(settings.damage);
+        // Reset attack cooldown
+        attackCooldown = settings.attackCooldown;
     }
 
     void inrange()
     {
-        if(settings.behavior == EnemyBehavior.Aggressive)
+        if (settings.behavior == EnemyBehavior.Aggressive)
         {
             if (Vector3.Distance(transform.position, player.position) < settings.detectionRange)
             {
@@ -116,10 +128,9 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                isChasing=false;
+                isChasing = false;
             }
         }
-       
     }
 
     void Roam()
@@ -141,12 +152,10 @@ public class EnemyController : MonoBehaviour
         }
         else if (settings.behavior == EnemyBehavior.Passive)
         {
-            // Start fleeing when passive enemy takes damage
             isFleeing = true;
         }
         else if (settings.behavior == EnemyBehavior.Neutral)
         {
-            // Start chasing the player when neutral enemy takes damage
             isChasing = true;
         }
     }
@@ -154,7 +163,6 @@ public class EnemyController : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        // Handle player rewards for killing enemy
         playerLeveling.CheckForLevelUp(settings.exp);
         inventory.coins += settings.coins;
         pickupUI.DisplayPickup("XP", settings.exp);
@@ -163,7 +171,6 @@ public class EnemyController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Draw a wire sphere to represent the detection range
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, settings.detectionRange);
         Gizmos.DrawWireSphere(transform.position, settings.attackRange);

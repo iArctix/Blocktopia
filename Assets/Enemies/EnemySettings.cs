@@ -10,7 +10,8 @@ public class EnemySettings : ScriptableObject
     public float roamingRadius = 10f; // Radius within which the enemy roam
     public float homeRegionRadius = 20f;
 
-    public float damage = 10f;
+    public int damage = 10;
+    public int attackCooldown = 3;
 
     //Rewards
     public int coins;
