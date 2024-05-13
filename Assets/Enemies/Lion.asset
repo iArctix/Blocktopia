@@ -21,4 +21,4 @@ MonoBehaviour:
   damage: 10
   attackCooldown: 3
   coins: 80
-  exp: 60
+  exp: 100
