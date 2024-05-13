@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     private float currentHealth;
     private Vector3 homePosition; // Added to store the initial position for roaming
     private bool isChasing = false; // Added to track chasing state
+    private bool isFleeing = false; // Added to track fleeing state
 
     // Reference to other scripts for XP, coins, and UI
     public PlayerLeveling playerLeveling;
@@ -25,49 +26,79 @@ public class EnemyController : MonoBehaviour
         // Set initial behavior based on EnemySettings
         if (settings.behavior == EnemyBehavior.Passive)
         {
-            Roam();
+            Roam(); // Passive enemies start by roaming
         }
-        else if (settings.behavior == EnemyBehavior.Neutral)
+        else if (settings.behavior == EnemyBehavior.Neutral || settings.behavior == EnemyBehavior.Aggressive)
         {
-            Roam(); // Neutral enemies start roaming
-        }
-        else if (settings.behavior == EnemyBehavior.Aggressive)
-        {
-            Roam(); // Aggressive enemies start roaming
+            agent.SetDestination(homePosition); // Start by roaming around the home position
         }
     }
 
     void Update()
     {
-        if (settings.behavior == EnemyBehavior.Aggressive)
+        if (!isChasing && !isFleeing)
         {
-            // Roaming behavior for aggressive enemies
-            if (!isChasing)
+            if (settings.behavior == EnemyBehavior.Neutral && !isChasing)
             {
+                // Roaming behavior for neutral enemies
                 if (!agent.hasPath || agent.remainingDistance < 0.5f)
                 {
                     Roam();
                 }
-
-                if (Vector3.Distance(transform.position, player.position) <= settings.detectionRange)
-                {
-                    // If player is within detection range, start chasing
-                    isChasing = true;
-                }
             }
-            else
+            else if (settings.behavior == EnemyBehavior.Passive)
             {
-                // Chasing behavior for aggressive enemies
-                agent.SetDestination(player.position);
-
-                if (Vector3.Distance(transform.position, player.position) > settings.detectionRange)
+                // Roaming behavior for passive enemies
+                if (!agent.hasPath || agent.remainingDistance < 0.5f)
                 {
-                    // If player leaves the detection range, stop chasing and resume roaming
-                    isChasing = false;
                     Roam();
                 }
             }
         }
+        else
+        {
+            if (isChasing)
+            {
+                // Chasing behavior for neutral and aggressive enemies
+                agent.SetDestination(player.position);
+            }
+            else if (isFleeing)
+            {
+                // Fleeing behavior for passive enemies
+                agent.SetDestination(transform.position - (player.position - transform.position).normalized * settings.detectionRange);
+            }
+
+            // Check if the player is out of range
+            if (Vector3.Distance(transform.position, player.position) > settings.detectionRange)
+            {
+                if (isChasing)
+                {
+                    // Stop chasing when the player is out of range and resume roaming
+                    isChasing = false;
+                    Roam();
+                }
+                else if (isFleeing)
+                {
+                    // Resume roaming when player is out of detection range
+                    isFleeing = false;
+                    Roam();
+                }
+            }
+        }
+        if (settings.behavior == EnemyBehavior.Aggressive)  
+        {
+            if(Vector3.Distance(transform.position, player.position) > settings.detectionRange)
+            {
+                Roam();
+                
+            }
+            else
+            {
+                agent.SetDestination(player.position);
+            }
+            
+        }
+        
     }
 
     void Roam()
@@ -89,8 +120,8 @@ public class EnemyController : MonoBehaviour
         }
         else if (settings.behavior == EnemyBehavior.Passive)
         {
-            // Fleeing behavior when passive
-            agent.SetDestination(transform.position - (player.position - transform.position).normalized * settings.detectionRange);
+            // Start fleeing when passive enemy takes damage
+            isFleeing = true;
         }
         else if (settings.behavior == EnemyBehavior.Neutral)
         {
@@ -99,7 +130,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (settings.behavior == EnemyBehavior.Aggressive)
         {
-            // Chasing behavior when aggressive enemy takes damage
+            // Start chasing the player when aggressive enemy takes damage
             isChasing = true;
         }
     }
