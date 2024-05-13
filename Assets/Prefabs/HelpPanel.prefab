@@ -1280,20 +1280,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Each area will contain different enemies and resources. Kill enemies to
-    gain XP and Coins. The goal is to kill the boss in an area to move onto the next
-    from the town.
+    gain XP and Coins. Level up to get stonger and visit harsher lands
 
 
-    Each area has a portal in which you cna telpeort and travel
-    from use it at yout own will.
+    Each
+    area has a portal in which you can teleport and travel from use it at your own
+    will.
 
 
-    The town has a forge where you can upgrade
-    gear and tools to progress and fight easier
+    The town has a forge where you can upgrade gear and tools to progress
+    and fight easier
 
 
-    If you cant mine a resource
-    go back and figure how to upgrade it'
+    If you cant mine a resource go back and figure how to
+    upgrade it'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46c8ff7cff71de4459e3e969fd47999f, type: 2}
   m_sharedMaterial: {fileID: 7818790506759960680, guid: 46c8ff7cff71de4459e3e969fd47999f,

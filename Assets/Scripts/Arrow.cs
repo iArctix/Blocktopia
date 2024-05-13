@@ -3,7 +3,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public float lifetime = 10f; 
-    public float damage = 10f; 
+    public float damage = 20f; 
     public bool isStuck = false;
 
     public Playerstats stats;

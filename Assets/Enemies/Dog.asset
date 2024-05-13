@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39bfac195f4b0048a068bca5bf1c8c2, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  maxHealth: 120
+  maxHealth: 40
   behavior: 1
   attackRange: 2
   detectionRange: 15
