@@ -8,7 +8,7 @@ public class Bow : MonoBehaviour
     public float maxArrowSpeed = 50f;
     public float chargeTimeToMaxSpeed = 2f;
     public float arrowGravity = 9.81f; // Acceleration due to gravity
-    public float fireCooldown = 1f; // Cooldown duration in seconds
+    public float fireCooldown = 0.4f; // Cooldown duration in seconds
 
     private bool isCharging;
     private float chargeStartTime;
