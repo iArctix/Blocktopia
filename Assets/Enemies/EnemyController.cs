@@ -28,9 +28,13 @@ public class EnemyController : MonoBehaviour
         {
             Roam(); // Passive enemies start by roaming
         }
-        else if (settings.behavior == EnemyBehavior.Neutral || settings.behavior == EnemyBehavior.Aggressive)
+        else if (settings.behavior == EnemyBehavior.Neutral )
         {
             agent.SetDestination(homePosition); // Start by roaming around the home position
+        }
+        else if (settings.behavior == EnemyBehavior.Aggressive)
+        {
+            Roam();
         }
     }
 
@@ -47,6 +51,14 @@ public class EnemyController : MonoBehaviour
                 }
             }
             else if (settings.behavior == EnemyBehavior.Passive)
+            {
+                // Roaming behavior for passive enemies
+                if (!agent.hasPath || agent.remainingDistance < 0.5f)
+                {
+                    Roam();
+                }
+            }
+            else if (settings.behavior == EnemyBehavior.Aggressive)
             {
                 // Roaming behavior for passive enemies
                 if (!agent.hasPath || agent.remainingDistance < 0.5f)
@@ -85,20 +97,25 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-        if (settings.behavior == EnemyBehavior.Aggressive)  
+
+        inrange();
+
+    }
+
+    void inrange()
+    {
+        if(settings.behavior == EnemyBehavior.Aggressive)
         {
-            if(Vector3.Distance(transform.position, player.position) > settings.detectionRange)
+            if (Vector3.Distance(transform.position, player.position) < settings.detectionRange)
             {
-                Roam();
-                
+                isChasing = true;
             }
             else
             {
-                agent.SetDestination(player.position);
+                isChasing=false;
             }
-            
         }
-        
+       
     }
 
     void Roam()
@@ -126,11 +143,6 @@ public class EnemyController : MonoBehaviour
         else if (settings.behavior == EnemyBehavior.Neutral)
         {
             // Start chasing the player when neutral enemy takes damage
-            isChasing = true;
-        }
-        else if (settings.behavior == EnemyBehavior.Aggressive)
-        {
-            // Start chasing the player when aggressive enemy takes damage
             isChasing = true;
         }
     }
