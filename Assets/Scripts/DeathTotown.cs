@@ -22,7 +22,7 @@ public class DeathTotown : MonoBehaviour
             inventory.coins = 0;
         }
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         Cursor.lockState= CursorLockMode.Locked;
     }
 }

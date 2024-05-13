@@ -6,13 +6,13 @@ public class Sword : MonoBehaviour
     public Animator animator;
     public float damage = 20f;
     public Playerstats stats;
-    public float range = 1f;
+    public float range = 2.5f;
     private bool hitRegistered = false;
-    public float hitDelay = 1f; // Delay in seconds before another hit can occur
+    public float hitDelay = 1f; 
 
     void Update()
     {
-        // Check if the mouse button is being held down
+        
         if (Input.GetMouseButton(0))
         {
             ActivateSword();
@@ -29,7 +29,7 @@ public class Sword : MonoBehaviour
 
     void ActivateSword()
     {
-        // Trigger the animation
+        
         if (animator != null)
         {
             animator.SetBool("IsActive", true);
@@ -38,7 +38,7 @@ public class Sword : MonoBehaviour
 
     void DeactivateSword()
     {
-        // Stop the animation
+        
         if (animator != null)
         {
             animator.SetBool("IsActive", false);
@@ -47,20 +47,21 @@ public class Sword : MonoBehaviour
 
     void CheckForHit()
     {
-        // Cast a ray forward from the sword
+        
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range))
         {
-            // Check if the ray hit an enemy
+           
             if (hit.collider.CompareTag("Enemy"))
             {
-                // Get the EnemyController component of the collided enemy
+                Debug.Log("hit");
+                
                 EnemyController enemyController = hit.collider.GetComponent<EnemyController>();
                 if (enemyController != null)
                 {
-                    // Deal damage to the enemy
+                   
                     enemyController.TakeDamage(damage + stats.Strengthlevel);
-                    hitRegistered = true; // Set hitRegistered to true to prevent further damage in this swing
+                    hitRegistered = true; 
                     StartCoroutine(ResetHit());
                 }
             }
@@ -70,6 +71,6 @@ public class Sword : MonoBehaviour
     IEnumerator ResetHit()
     {
         yield return new WaitForSeconds(hitDelay);
-        hitRegistered = false; // Reset hitRegistered after the delay
+        hitRegistered = false; 
     }
 }

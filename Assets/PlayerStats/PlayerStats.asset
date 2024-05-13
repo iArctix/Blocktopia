@@ -17,10 +17,10 @@ MonoBehaviour:
   pickaxelevel: 1
   axelevel: 1
   maxhealth: 100
-  currenthealth: 90
-  playerlevel: 0
-  skillpoints: 0
-  playertotalexp: 0
+  currenthealth: 100
+  playerlevel: 50
+  skillpoints: 1
+  playertotalexp: 120
   HealthLevel: 0
   GatherSpeedLevel: 0
   Strengthlevel: 0
