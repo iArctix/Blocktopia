@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d39bfac195f4b0048a068bca5bf1c8c2, type: 3}
-  m_Name: Passive
+  m_Name: ZOmbie
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  behavior: 0
+  maxHealth: 140
+  behavior: 2
   attackRange: 2
-  detectionRange: 5
-  roamingRadius: 100
-  homeRegionRadius: 40
+  detectionRange: 8
+  roamingRadius: 30
+  homeRegionRadius: 30
   damage: 10
-  coins: 100
-  exp: 50
+  coins: 20
+  exp: 20

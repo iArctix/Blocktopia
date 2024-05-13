@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Neutral
   m_EditorClassIdentifier: 
   maxHealth: 100
-  behavior: 1
-  attackRange: 5
+  behavior: 0
+  attackRange: 2
   detectionRange: 10
   roamingRadius: 30
   homeRegionRadius: 40
+  damage: 10
   coins: 100
   exp: 50

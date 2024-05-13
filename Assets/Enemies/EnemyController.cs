@@ -16,12 +16,16 @@ public class EnemyController : MonoBehaviour
     public InventoryData inventory;
     public PickupUI pickupUI;
 
+    [System.Obsolete]
     void Start()
     {
         currentHealth = settings.maxHealth;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         homePosition = transform.position;
+
+        playerLeveling = FindObjectOfType<PlayerLeveling>();
+        pickupUI = FindObjectOfType<PickupUI>();
 
         // Set initial behavior based on EnemySettings
         if (settings.behavior == EnemyBehavior.Passive)
@@ -160,7 +164,8 @@ public class EnemyController : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         // Draw a wire sphere to represent the detection range
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, settings.detectionRange);
+        Gizmos.DrawWireSphere(transform.position, settings.attackRange);
     }
 }

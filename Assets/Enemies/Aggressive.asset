@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   behavior: 2
-  attackRange: 5
+  attackRange: 2
   detectionRange: 5
   roamingRadius: 100
   homeRegionRadius: 40
+  damage: 10
   coins: 100
   exp: 50
