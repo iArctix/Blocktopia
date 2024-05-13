@@ -43597,74 +43597,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2038217108}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1966640396
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7112038332150007934, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_Name
-      value: SM-11-Igor_wSpade
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.5747786
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -119.08747
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636092320750965444, guid: 3923ad9b70407c544bb331cd543d5498,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3923ad9b70407c544bb331cd543d5498, type: 3}
 --- !u!1001 &1966660017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44673,7 +44605,7 @@ PrefabInstance:
     - target: {fileID: 522169335232877604, guid: 3121553c72dd59b4c8da910acc44200e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 205.83266
+      value: 205.11
       objectReference: {fileID: 0}
     - target: {fileID: 522169335232877604, guid: 3121553c72dd59b4c8da910acc44200e,
         type: 3}
@@ -51382,6 +51314,7 @@ GameObject:
   - component: {fileID: 6002066963928360852}
   - component: {fileID: 2176704079271713860}
   - component: {fileID: 6002066963928360853}
+  - component: {fileID: 6002066963928360854}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -52524,6 +52457,25 @@ MonoBehaviour:
   mountain: {fileID: 42944003}
   graveyard: {fileID: 42944004}
   stats: {fileID: 11400000, guid: 8cd10aa41107f2647a1dabff0f191b75, type: 2}
+--- !u!114 &6002066963928360854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259343780624246854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ee680abe18a51448c57c5a21bebc36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTypes:
+  - enemyPrefab: {fileID: 8668117283038571670, guid: 2a503ae42906d9e4990d05ef4efd6a93,
+      type: 3}
+    spawnNumber: 60
+  - enemyPrefab: {fileID: 8079164647087434544, guid: 83f629090f7c7f94995876abd269ca62,
+      type: 3}
+    spawnNumber: 20
 --- !u!114 &6003444653566382637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56036,4 +55988,3 @@ SceneRoots:
   - {fileID: 516707426}
   - {fileID: 1894132574}
   - {fileID: 6775008250987818038}
-  - {fileID: 1966640396}

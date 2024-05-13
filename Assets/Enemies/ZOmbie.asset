@@ -16,8 +16,9 @@ MonoBehaviour:
   behavior: 2
   attackRange: 2
   detectionRange: 8
-  roamingRadius: 30
-  homeRegionRadius: 30
+  roamingRadius: 100
+  homeRegionRadius: 100
   damage: 10
+  attackCooldown: 3
   coins: 20
   exp: 20

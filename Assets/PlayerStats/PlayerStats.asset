@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   bowlevel: 1
-  swordlevel: 2
-  pickaxelevel: 4
-  axelevel: 4
+  swordlevel: 1
+  pickaxelevel: 1
+  axelevel: 1
   maxhealth: 100
-  currenthealth: 100
+  currenthealth: 90
   playerlevel: 0
-  skillpoints: 2
-  playertotalexp: 200
+  skillpoints: 0
+  playertotalexp: 0
   HealthLevel: 0
-  GatherSpeedLevel: 2
-  Strengthlevel: 10
+  GatherSpeedLevel: 0
+  Strengthlevel: 0

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   coins: 0
-  Oak: 40
-  Birch: 80
-  Ash: 80
-  mahogany: 100
-  Copper: 40
-  gold: 80
-  titanium: 80
-  tungsten: 100
+  Oak: 0
+  Birch: 0
+  Ash: 0
+  mahogany: 0
+  Copper: 0
+  gold: 0
+  titanium: 0
+  tungsten: 0

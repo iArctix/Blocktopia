@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public PlayerLeveling playerLeveling;
     public InventoryData inventory;
     public PickupUI pickupUI;
+    public EnemySpawner enemySpawner;
 
     [System.Obsolete]
     void Start()
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
 
         playerLeveling = FindObjectOfType<PlayerLeveling>();
         pickupUI = FindObjectOfType<PickupUI>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
 
         if (settings.behavior == EnemyBehavior.Passive)
         {
@@ -162,6 +164,7 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
+        enemySpawner.EnemyDied(gameObject);
         Destroy(gameObject);
         playerLeveling.CheckForLevelUp(settings.exp);
         inventory.coins += settings.coins;
